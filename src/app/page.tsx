@@ -19,15 +19,15 @@ import { Separator } from '@/components/ui/separator';
 
 function formatTime(iso: string | null | undefined): string {
   if (!iso) return '--';
-  // API returns times as ISO strings already adjusted for the requested timezone.
-  // Extract HH:MM and format as 12-hour.
-  const date = new Date(iso);
-  if (isNaN(date.getTime())) return iso;
-  const h = date.getUTCHours();
-  const m = date.getUTCMinutes();
+  // API returns local time strings like "2026-03-22T06:41:00" (no timezone suffix).
+  // Extract HH:MM directly from the string — do NOT use Date object which shifts timezone.
+  const match = iso.match(/T(\d{2}):(\d{2})/);
+  if (!match) return iso;
+  const h = parseInt(match[1], 10);
+  const m = match[2];
   const period = h >= 12 ? 'pm' : 'am';
   const h12 = h % 12 || 12;
-  return `${h12}:${m.toString().padStart(2, '0')} ${period}`;
+  return `${h12}:${m} ${period}`;
 }
 
 function formatTimeRange(

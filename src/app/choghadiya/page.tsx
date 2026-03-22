@@ -19,13 +19,13 @@ import { Separator } from '@/components/ui/separator';
 
 function formatTime(iso: string | null | undefined): string {
   if (!iso) return '--';
-  const date = new Date(iso);
-  if (isNaN(date.getTime())) return iso;
-  const h = date.getUTCHours();
-  const m = date.getUTCMinutes();
+  const match = iso.match(/T(\d{2}):(\d{2})/);
+  if (!match) return iso;
+  const h = parseInt(match[1], 10);
+  const m = match[2];
   const period = h >= 12 ? 'pm' : 'am';
   const h12 = h % 12 || 12;
-  return `${h12}:${m.toString().padStart(2, '0')} ${period}`;
+  return `${h12}:${m} ${period}`;
 }
 
 function formatTimeRange(
