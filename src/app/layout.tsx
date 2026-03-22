@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Jyotish - Vedic Astrology Kundli App | RoxyAPI Starter',
+    default: 'Jyotish - Vedic Astrology Kundli App | RoxyAPI Template',
     template: '%s | Jyotish',
   },
   description:
-    'Free open-source Vedic astrology app with Kundli generator, Panchang, Ashtakoot Gun Milan, Vimshottari Dasha, dosha detection, and planetary transits. Built with Next.js and RoxyAPI Vedic Astrology API.',
+    'Vedic astrology template with Kundli generator, Panchang, Ashtakoot Gun Milan, Vimshottari Dasha, dosha detection, and planetary transits. Built with Next.js and RoxyAPI Vedic Astrology API.',
   keywords: [
     'vedic astrology', 'kundli', 'kundali', 'birth chart', 'panchang',
     'gun milan', 'ashtakoot', 'vimshottari dasha', 'manglik dosha',
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'RoxyAPI', url: 'https://roxyapi.com' }],
   openGraph: {
     title: 'Jyotish - Vedic Astrology Kundli App',
-    description: 'Free Vedic astrology starter with Kundli, Panchang, compatibility matching, and Dasha analysis. Powered by RoxyAPI.',
+    description: 'Vedic astrology template with Kundli, Panchang, compatibility matching, and Dasha analysis. Powered by RoxyAPI.',
     url: 'https://github.com/RoxyAPI/jyotish-vedic-astrology-app',
     siteName: 'Jyotish by RoxyAPI',
     type: 'website',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Jyotish - Vedic Astrology Kundli App',
-    description: 'Free Vedic astrology starter with Kundli, Panchang, compatibility matching, and Dasha analysis. Powered by RoxyAPI.',
+    description: 'Vedic astrology template with Kundli, Panchang, compatibility matching, and Dasha analysis. Powered by RoxyAPI.',
   },
 };
 
