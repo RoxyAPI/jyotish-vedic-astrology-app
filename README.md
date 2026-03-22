@@ -2,7 +2,7 @@
 
 [![Get API Key](https://img.shields.io/badge/Get_API_Key-roxyapi.com-black?style=for-the-badge)](https://roxyapi.com/pricing)
 [![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/RoxyAPI/jyotish-vedic-astrology-app&env=ROXYAPI_KEY&envDescription=Get%20your%20API%20key%20at%20roxyapi.com/pricing&project-name=jyotish&repository-name=jyotish)
-[![API Docs](https://img.shields.io/badge/API_Docs-Reference-black?style=for-the-badge)](https://roxyapi.com/api-reference)
+[![API Docs](https://img.shields.io/badge/API_Docs-Reference-black?style=for-the-badge)](https://roxyapi.com/api-reference#tag/vedic-astrology)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 
 Build a DrikPanchang-style Vedic astrology app in 30 minutes. Open-source Next.js template powered by [Roxy](https://roxyapi.com) Vedic Astrology API. Kundli generation, Panchang, Ashtakoot Gun Milan, Vimshottari Dasha, dosha analysis, and planetary transits. One API key, 40+ Jyotish endpoints.
@@ -91,7 +91,7 @@ Types auto-generated from the [OpenAPI spec](https://roxyapi.com/api/v2/vedic-as
 | Transits | `POST /transit/monthly` | Sign ingress events, retrograde dates |
 | City Search | `GET /search` | 7,000+ cities with lat/lng/timezone |
 
-This template uses 10 of the 40+ available endpoints. See the full [API reference](https://roxyapi.com/api-reference) for divisional charts (D2-D60), Ashtakavarga, Shadbala, KP astrology, Choghadiya, Hora, aspects, parallels, ecliptic crossings, and monthly ephemeris.
+This template uses 10 of the 40+ available endpoints. See the full [API reference](https://roxyapi.com/api-reference#tag/vedic-astrology) for divisional charts (D2-D60), Ashtakavarga, Shadbala, KP astrology, Choghadiya, Hora, aspects, parallels, ecliptic crossings, and monthly ephemeris.
 
 ## Project structure
 
@@ -158,7 +158,7 @@ This template is built and maintained by [RoxyAPI](https://roxyapi.com). Roxy is
 
 - [Vedic Astrology API](https://roxyapi.com/products/vedic-astrology-api)
 - [Browse all APIs](https://roxyapi.com/products)
-- [API reference and playground](https://roxyapi.com/api-reference)
+- [API reference and playground](https://roxyapi.com/api-reference#tag/vedic-astrology)
 - [Get API key](https://roxyapi.com/pricing)
 - [All templates](https://roxyapi.com/starters)
 - [Connect AI agents via MCP](https://roxyapi.com/docs/mcp)
