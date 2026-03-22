@@ -7,7 +7,7 @@
 
 Build a DrikPanchang-style Vedic astrology app in 30 minutes. Open-source Next.js template powered by [Roxy](https://roxyapi.com) Vedic Astrology API. Kundli generation, Panchang, Ashtakoot Gun Milan, Vimshottari Dasha, dosha analysis, and planetary transits. One API key, 40+ Jyotish endpoints.
 
-An alternative to building on AstroSage, Prokerala, or VedAstro APIs. Full control over your UI, data, and user experience.
+An open-source alternative to DrikPanchang, AstroSage, and GaneshaSpeaks. Build on Roxy instead of Prokerala, Vedic Rishi, or OnlineJyotish APIs. Full control over your UI, data, and user experience.
 
 ### Panchang
 
