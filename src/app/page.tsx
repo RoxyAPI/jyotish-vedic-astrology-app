@@ -271,9 +271,8 @@ export default function Home() {
                     <p className="text-xs text-muted-foreground">
                       {data.tithi?.paksha} Paksha
                     </p>
-                    <p className="text-xs text-muted-foreground">Ends: {formatTime(data.tithi?.endTime)}</p>
-                    {data.tithi?.percentRemaining != null && (
-                      <p className="text-xs text-muted-foreground">{Math.round(data.tithi.percentRemaining)}% remaining</p>
+                    {data.tithi?.percent != null && (
+                      <p className="text-xs text-muted-foreground">{Math.round(data.tithi.percent)}% elapsed</p>
                     )}
                   </div>
 
@@ -288,7 +287,6 @@ export default function Home() {
                       Lord: {data.nakshatra?.lord} &middot; Pada{' '}
                       {data.nakshatra?.pada}
                     </p>
-                    <p className="text-xs text-muted-foreground">Ends: {formatTime(data.nakshatra?.endTime)}</p>
                   </div>
 
                   <div>

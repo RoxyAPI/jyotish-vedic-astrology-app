@@ -1,8 +1,25 @@
 # Jyotish - Free Vedic Astrology Kundli App
 
+[![Get API Key](https://img.shields.io/badge/Get_API_Key-roxyapi.com-black?style=for-the-badge)](https://roxyapi.com/pricing)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/RoxyAPI/jyotish-vedic-astrology-app&env=ROXYAPI_KEY&envDescription=Get%20your%20API%20key%20at%20roxyapi.com/pricing&project-name=jyotish&repository-name=jyotish)
+[![API Docs](https://img.shields.io/badge/API_Docs-Reference-black?style=for-the-badge)](https://roxyapi.com/api-reference)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
+
 Build a DrikPanchang-style Vedic astrology app in 30 minutes. Free, open-source Next.js template powered by [Roxy](https://roxyapi.com) Vedic Astrology API. Kundli generation, Panchang, Ashtakoot Gun Milan, Vimshottari Dasha, dosha analysis, and planetary transits. One API key, 40+ Jyotish endpoints.
 
 An alternative to building on AstroSage, Prokerala, or VedAstro APIs. Full control over your UI, data, and user experience.
+
+### Panchang
+
+| Light | Dark |
+|-------|------|
+| ![Panchang Light](public/screenshots/panchang-light.jpg) | ![Panchang Dark](public/screenshots/panchang-dark.jpg) |
+
+### Kundali
+
+| Light | Dark |
+|-------|------|
+| ![Kundali Light](public/screenshots/kundali-light.jpg) | ![Kundali Dark](public/screenshots/kundali-dark.jpg) |
 
 ## What you get
 
