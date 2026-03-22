@@ -16,38 +16,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-
-function formatTime(iso: string | null | undefined): string {
-  if (!iso) return '--';
-  const match = iso.match(/T(\d{2}):(\d{2})/);
-  if (!match) return iso;
-  const h = parseInt(match[1], 10);
-  const m = match[2];
-  const period = h >= 12 ? 'pm' : 'am';
-  const h12 = h % 12 || 12;
-  return `${h12}:${m} ${period}`;
-}
-
-function formatTimeRange(
-  start: string | null | undefined,
-  end: string | null | undefined
-): string {
-  return `${formatTime(start)} \u2013 ${formatTime(end)}`;
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
-function getTodayString(): string {
-  const today = new Date();
-  return today.toISOString().split('T')[0];
-}
+import { formatTime, formatTimeRange, formatDate, getTodayString } from '@/lib/format';
 
 type ChoghadiyaPeriod = {
   name: 'Udveg' | 'Amrit' | 'Rog' | 'Labh' | 'Shubh' | 'Char' | 'Kaal';

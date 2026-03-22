@@ -6,6 +6,7 @@ import { PLANET_ABBR, RASHI_NAMES } from '@/lib/constants';
 import { BirthChart } from '@/components/birth-chart';
 import { CitySearch, type CityResult } from '@/components/city-search';
 import { useLanguage } from '@/components/language-provider';
+import { formatDate, getTodayString } from '@/lib/format';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -42,20 +43,6 @@ const VARGA_CHARTS = [
   { division: 60, name: 'D60 Shashtiamsa', desc: 'Past karma' },
 ] as const;
 
-function todayString() {
-  const d = new Date();
-  return d.toISOString().split('T')[0];
-}
-
-function formatDate(iso: string): string {
-  const [y, m, d] = iso.split('-');
-  const date = new Date(Number(y), Number(m) - 1, Number(d));
-  return date.toLocaleDateString('en-IN', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-}
 
 function formatDuration(years: number): string {
   const y = Math.floor(years);
@@ -121,7 +108,7 @@ function transformNavamsaToHouses(
 
 export default function KundaliPage() {
   const { lang } = useLanguage();
-  const [date, setDate] = useState(todayString());
+  const [date, setDate] = useState(getTodayString());
   const [time, setTime] = useState('10:00');
   const [location, setLocation] = useState({ latitude: 19.076, longitude: 72.8777, timezone: 5.5 });
   const [loading, setLoading] = useState(false);

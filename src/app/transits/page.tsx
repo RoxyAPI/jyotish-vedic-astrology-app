@@ -18,6 +18,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { getMonthlyTransits, getMonthlyAspects } from './actions';
+import { formatDateShort } from '@/lib/format';
 
 const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June',
@@ -99,13 +100,6 @@ function groupAspectsByDate(events: AspectEvent[]): Record<string, AspectEvent[]
   return groups;
 }
 
-function formatDate(dateStr: string): string {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'short',
-  });
-}
 
 function groupByDate(events: TransitEvent[]): Record<string, TransitEvent[]> {
   const groups: Record<string, TransitEvent[]> = {};
@@ -243,7 +237,7 @@ export default function TransitsPage() {
                 <Card key={date}>
                   <CardHeader className="pb-0">
                     <CardTitle className="text-sm font-medium text-muted-foreground">
-                      {formatDate(date)}
+                      {formatDateShort(date)}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -306,7 +300,7 @@ export default function TransitsPage() {
                     <Card key={date}>
                       <CardHeader className="pb-0">
                         <CardTitle className="text-sm font-medium text-muted-foreground">
-                          {formatDate(date)}
+                          {formatDateShort(date)}
                         </CardTitle>
                       </CardHeader>
                       <CardContent>

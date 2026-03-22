@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from 'react';
 import { fetchPanchang } from '@/app/actions';
 import { CitySearch, type CityResult } from '@/components/city-search';
 import { useLanguage } from '@/components/language-provider';
+import { formatTime, formatTimeRange, formatDate, getTodayString } from '@/lib/format';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
@@ -16,40 +17,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-
-function formatTime(iso: string | null | undefined): string {
-  if (!iso) return '--';
-  // API returns local time strings like "2026-03-22T06:41:00" (no timezone suffix).
-  // Extract HH:MM directly from the string — do NOT use Date object which shifts timezone.
-  const match = iso.match(/T(\d{2}):(\d{2})/);
-  if (!match) return iso;
-  const h = parseInt(match[1], 10);
-  const m = match[2];
-  const period = h >= 12 ? 'pm' : 'am';
-  const h12 = h % 12 || 12;
-  return `${h12}:${m} ${period}`;
-}
-
-function formatTimeRange(
-  start: string | null | undefined,
-  end: string | null | undefined
-): string {
-  return `${formatTime(start)} \u2013 ${formatTime(end)}`;
-}
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-}
-
-function getTodayString(): string {
-  const today = new Date();
-  return today.toISOString().split('T')[0];
-}
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type PanchangData = any;
