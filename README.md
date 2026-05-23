@@ -9,17 +9,57 @@ Open-source Next.js template for a Vedic astrology app: kundli generation, daily
 
 Fork it, set one environment variable, and ship.
 
-### Panchang
-
-| Light | Dark |
-|-------|------|
-| ![Panchang Light](public/screenshots/panchang-light.jpg) | ![Panchang Dark](public/screenshots/panchang-dark.jpg) |
-
 ### Kundali
 
+The D1 Rashi chart, all nine Navagraha plus Lagna, rendered with `RoxyVedicKundli`.
+
 | Light | Dark |
 |-------|------|
-| ![Kundali Light](public/screenshots/kundali-light.jpg) | ![Kundali Dark](public/screenshots/kundali-dark.jpg) |
+| ![Kundali Rashi chart, light](public/screenshots/kundali-rashi-light.jpg) | ![Kundali Rashi chart, dark](public/screenshots/kundali-rashi-dark.jpg) |
+
+Strength analysis: the Ashtakavarga bindu grid with `RoxyAshtakavargaGrid` and the Shadbala ranking with `RoxyShadbalaTable`.
+
+| Light | Dark |
+|-------|------|
+| ![Ashtakavarga and Shadbala, light](public/screenshots/kundali-strength-light.jpg) | ![Ashtakavarga and Shadbala, dark](public/screenshots/kundali-strength-dark.jpg) |
+
+Vimshottari Dasha timeline with `RoxyDashaTimeline`, the active mahadasha highlighted.
+
+| Light | Dark |
+|-------|------|
+| ![Vimshottari Dasha timeline, light](public/screenshots/kundali-dasha-light.jpg) | ![Vimshottari Dasha timeline, dark](public/screenshots/kundali-dasha-dark.jpg) |
+
+### Panchang
+
+Daily tithi, nakshatra, yoga, karana, vara, and the auspicious and inauspicious muhurta windows.
+
+| Light | Dark |
+|-------|------|
+| ![Panchang table, light](public/screenshots/panchang-light.jpg) | ![Panchang table, dark](public/screenshots/panchang-dark.jpg) |
+
+### Choghadiya
+
+Day and night Choghadiya muhurta grid with `RoxyChoghadiyaGrid`, plus the 24 planetary Hora hours.
+
+| Light | Dark |
+|-------|------|
+| ![Choghadiya and Hora, light](public/screenshots/choghadiya-light.jpg) | ![Choghadiya and Hora, dark](public/screenshots/choghadiya-dark.jpg) |
+
+### Matching
+
+Ashtakoot Gun Milan with `RoxyGunaMilan`: the 36-point score, eight koota breakdown, and dosha analysis.
+
+| Light | Dark |
+|-------|------|
+| ![Gun Milan compatibility, light](public/screenshots/matching-light.jpg) | ![Gun Milan compatibility, dark](public/screenshots/matching-dark.jpg) |
+
+### Transits
+
+Monthly Gochar with sign-change events and planetary aspects for all nine planets.
+
+| Light | Dark |
+|-------|------|
+| ![Planetary transits, light](public/screenshots/transits-light.jpg) | ![Planetary transits, dark](public/screenshots/transits-dark.jpg) |
 
 ## What you get
 
