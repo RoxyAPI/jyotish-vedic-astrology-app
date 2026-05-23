@@ -1,6 +1,5 @@
 /**
- * Format an ISO local time string (e.g. "2026-03-22T06:41:00") to 12-hour display.
- * API returns local times without timezone suffix — extract HH:MM directly, no Date object.
+ * Format an ISO local time string (e.g. "2026-03-22T06:41:00") to 12-hour display. The API returns local times with no timezone suffix, so the HH:MM is read directly with no Date object (avoids a UTC reinterpretation).
  */
 export function formatTime(iso: string | null | undefined): string {
   if (!iso) return '--';
@@ -11,12 +10,15 @@ export function formatTime(iso: string | null | undefined): string {
   return `${h % 12 || 12}:${mm} ${h >= 12 ? 'pm' : 'am'}`;
 }
 
-/** Format a time range from two ISO strings. */
-export function formatTimeRange(start: string | null | undefined, end: string | null | undefined): string {
-  return `${formatTime(start)} \u2013 ${formatTime(end)}`;
+/** Format a time range from two ISO strings, e.g. "6:41 am to 7:30 am". */
+export function formatTimeRange(
+  start: string | null | undefined,
+  end: string | null | undefined,
+): string {
+  return `${formatTime(start)} to ${formatTime(end)}`;
 }
 
-/** Format an ISO date string to a readable date. */
+/** Format an ISO date string to a readable long date. */
 export function formatDate(dateStr: string): string {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
     weekday: 'long',
@@ -33,9 +35,4 @@ export function formatDateShort(dateStr: string): string {
     day: 'numeric',
     month: 'short',
   });
-}
-
-/** Today as YYYY-MM-DD. */
-export function getTodayString(): string {
-  return new Date().toISOString().split('T')[0];
 }

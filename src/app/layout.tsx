@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
-import { LanguageProvider } from "@/components/language-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { getLang } from "@/lib/lang.server";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -44,14 +44,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = await getLang();
+
   return (
     <html
-      lang="en"
+      lang={lang}
       suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} font-sans h-full antialiased`}
     >
@@ -62,13 +64,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <LanguageProvider>
-            <Navbar />
-            <main className="flex-1">
-              <div className="mx-auto max-w-6xl px-4 py-8">{children}</div>
-            </main>
-            <Footer />
-          </LanguageProvider>
+          <Navbar lang={lang} />
+          <main className="flex-1">
+            <div className="mx-auto max-w-6xl px-4 py-8">{children}</div>
+          </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

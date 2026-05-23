@@ -1,21 +1,21 @@
 'use server';
-import { api } from '@/api/client';
-import { hasApiKey } from '@/api/check-key';
 
-export async function calculateCompatibility(formData: {
-  person1: { date: string; time: string; latitude: number; longitude: number; timezone: number };
-  person2: { date: string; time: string; latitude: number; longitude: number; timezone: number };
-}) {
-  if (!hasApiKey()) {
-    throw new Error('API key not configured. Add ROXYAPI_KEY to .env.local — get one at roxyapi.com/pricing');
-  }
+import { roxy } from '@/lib/roxy/client';
+import { unwrap } from '@/lib/roxy/guard';
+import type { Lang } from '@/lib/lang';
+import type { Coords } from '@/lib/location';
 
-  const { data, error } = await api.POST('/compatibility', {
-    body: {
-      person1: formData.person1,
-      person2: formData.person2,
-    },
-  });
-  if (error) throw new Error('Failed to calculate compatibility');
-  return data;
+interface Person extends Coords {
+  date: string;
+  time: string;
+}
+
+/** Runs 36-point Ashtakoot Gun Milan for two birth charts. The response carries the total score, koota breakdown, and dosha analysis that `RoxyGunaMilan` renders. */
+export async function calculateMatch(input: { person1: Person; person2: Person; lang?: Lang }) {
+  return unwrap(
+    roxy.vedicAstrology.calculateGunMilan({
+      query: { lang: input.lang },
+      body: { person1: input.person1, person2: input.person2 },
+    }),
+  );
 }

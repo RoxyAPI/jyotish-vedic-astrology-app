@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -115,6 +114,33 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/*
+ * Roxy UI token bridge. Roxy UI components (RoxyVedicKundli, RoxyPanchangTable, etc.)
+ * read their colors from --roxy-* custom properties, not Tailwind classes (Shadow DOM
+ * stops utilities at the boundary). Mapping them to this app's shadcn tokens makes every
+ * Roxy component inherit the theme. The values reference --background, --foreground, etc.,
+ * which .dark already swaps, so dark mode follows automatically (next-themes toggles .dark
+ * on <html>, and Roxy components honor the .dark class too). See @roxyapi/ui THEMING.md.
+ */
+:root {
+  --roxy-bg: var(--card);
+  --roxy-fg: var(--foreground);
+  --roxy-muted: var(--muted-foreground);
+  --roxy-border: var(--border);
+  --roxy-accent: var(--primary);
+  /* Roxy draws accent-colored text ("Now", active states, "Asc") as an accent ink on the page, not on an accent fill. Map it to a page-legible color (primary), NOT primary-foreground (pure white or black), or those labels vanish. Swap to a brand color (e.g. an amber) for a visible accent pop. */
+  --roxy-accent-ink: var(--primary);
+  --roxy-danger: var(--destructive);
+  --roxy-ring: var(--ring);
+  --roxy-radius-sm: calc(var(--radius) * 0.6);
+  --roxy-radius-md: var(--radius);
+  --roxy-radius-lg: calc(var(--radius) * 1.4);
+  --roxy-radius-full: 9999px;
+  --roxy-font-sans: var(--font-sans);
+  --roxy-font-mono: var(--font-mono);
+  /* --roxy-success / --roxy-warning / --roxy-info have no shadcn equivalent; they keep the Roxy UI defaults (see @roxyapi/ui THEMING.md). */
 }
 
 @layer base {

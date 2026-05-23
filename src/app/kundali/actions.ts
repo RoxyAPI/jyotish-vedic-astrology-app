@@ -1,87 +1,43 @@
 'use server';
 
-import { api } from '@/api/client';
-import { hasApiKey } from '@/api/check-key';
+import { roxy } from '@/lib/roxy/client';
+import { unwrap } from '@/lib/roxy/guard';
+import type { Lang } from '@/lib/lang';
+import type { Coords } from '@/lib/location';
 
-export async function generateKundali(formData: {
+export interface BirthInput extends Coords {
   date: string;
   time: string;
-  latitude: number;
-  longitude: number;
-  timezone: number;
-  lang?: string;
-}) {
-  if (!hasApiKey()) {
-    throw new Error('API key not configured. Add ROXYAPI_KEY to .env.local — get one at roxyapi.com/pricing');
-  }
-
-  const body = {
-    date: formData.date,
-    time: formData.time,
-    latitude: formData.latitude,
-    longitude: formData.longitude,
-    timezone: formData.timezone,
-  };
-  const langQuery = { query: { lang: formData.lang } };
-
-  const [chart, navamsa, dashas, manglik, kalsarpa, sadhesati] = await Promise.all([
-    api.POST('/birth-chart', { params: langQuery, body }),
-    api.POST('/navamsa', { body }),
-    api.POST('/dasha/major', { body }),
-    api.POST('/dosha/manglik', { body }),
-    api.POST('/dosha/kalsarpa', { body }),
-    api.POST('/dosha/sadhesati', { body }),
-  ]);
-
-  return {
-    chart: chart.data,
-    navamsa: navamsa.data,
-    dashas: dashas.data,
-    manglik: manglik.data,
-    kalsarpa: kalsarpa.data,
-    sadhesati: sadhesati.data,
-  };
+  lang?: Lang;
 }
 
-export async function fetchDivisionalChart(formData: {
-  date: string;
-  time: string;
-  latitude: number;
-  longitude: number;
-  timezone: number;
-  division: number;
-}) {
-  if (!hasApiKey()) {
-    throw new Error('API key not configured. Add ROXYAPI_KEY to .env.local — get one at roxyapi.com/pricing');
-  }
-  const { data, error } = await api.POST('/divisional-chart', {
-    body: {
-      date: formData.date,
-      time: formData.time,
-      latitude: formData.latitude,
-      longitude: formData.longitude,
-      timezone: formData.timezone,
-      division: formData.division,
-    },
-  });
-  if (error) throw new Error('Failed to fetch divisional chart');
-  return data;
+/**
+ * Fans out one birth input to every kundali endpoint in parallel: D1 birth chart, D9 navamsa (via the generic divisional chart), Vimshottari major dashas, the three doshas, and the two strength analyses. One round trip per endpoint, all concurrent. `lang` is forwarded to the i18n-aware endpoints (birth chart, dashas); the dosha and strength endpoints return only numbers and planet names, so they take no `lang` query.
+ */
+export async function generateKundali({ date, time, latitude, longitude, timezone, lang }: BirthInput) {
+  const body = { date, time, latitude, longitude, timezone };
+
+  const [chart, navamsa, dashas, manglik, kalsarpa, sadhesati, ashtakavarga, shadbala] =
+    await Promise.all([
+      unwrap(roxy.vedicAstrology.generateBirthChart({ query: { lang }, body })),
+      unwrap(roxy.vedicAstrology.generateDivisionalChart({ body: { ...body, division: 9 } })),
+      unwrap(roxy.vedicAstrology.getMajorDashas({ query: { lang }, body })),
+      unwrap(roxy.vedicAstrology.checkManglikDosha({ body })),
+      unwrap(roxy.vedicAstrology.checkKalsarpaDosha({ body })),
+      unwrap(roxy.vedicAstrology.checkSadhesati({ body })),
+      unwrap(roxy.vedicAstrology.calculateAshtakavarga({ body })),
+      unwrap(roxy.vedicAstrology.calculateShadbala({ body })),
+    ]);
+
+  return { chart, navamsa, dashas, manglik, kalsarpa, sadhesati, ashtakavarga, shadbala };
 }
 
-export async function fetchStrengthAnalysis(formData: {
-  date: string;
-  time: string;
-  latitude: number;
-  longitude: number;
-  timezone: number;
-}) {
-  if (!hasApiKey()) {
-    throw new Error('API key not configured. Add ROXYAPI_KEY to .env.local — get one at roxyapi.com/pricing');
-  }
-  const body = { date: formData.date, time: formData.time, latitude: formData.latitude, longitude: formData.longitude, timezone: formData.timezone };
-  const [ashtakavarga, shadbala] = await Promise.all([
-    api.POST('/ashtakavarga', { body }),
-    api.POST('/shadbala', { body }),
-  ]);
-  return { ashtakavarga: ashtakavarga.data, shadbala: shadbala.data };
+/** Loads a single divisional (varga) chart on demand. `division` is the integer (9 for navamsa, 10 for dasamsa, up to 60). */
+export async function fetchDivisionalChart(input: Omit<BirthInput, 'lang'> & { division: number }) {
+  const { date, time, latitude, longitude, timezone, division } = input;
+  return unwrap(
+    roxy.vedicAstrology.generateDivisionalChart({
+      body: { date, time, latitude, longitude, timezone, division },
+    }),
+  );
 }
