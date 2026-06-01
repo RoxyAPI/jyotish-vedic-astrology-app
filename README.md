@@ -3,7 +3,7 @@
 [![Get API Key](https://img.shields.io/badge/Get_API_Key-roxyapi.com-black?style=for-the-badge)](https://roxyapi.com/pricing)
 [![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/RoxyAPI/jyotish-vedic-astrology-app&env=ROXYAPI_KEY&envDescription=Get%20your%20API%20key%20at%20roxyapi.com/pricing&project-name=jyotish&repository-name=jyotish)
 [![API Docs](https://img.shields.io/badge/API_Docs-Reference-black?style=for-the-badge)](https://roxyapi.com/api-reference#tag/vedic-astrology)
-[![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](https://github.com/RoxyAPI/jyotish-vedic-astrology-app/blob/main/LICENSE)
 
 Open-source Next.js template for a Vedic astrology app: kundli generation, daily Panchang, Vimshottari Dasha, Ashtakoot Gun Milan matching, dosha detection, and planetary transits. Built on the [Roxy](https://roxyapi.com) Vedic Astrology API and rendered with [Roxy UI](https://roxyapi.com/ui). One API key, 40+ Jyotish endpoints, full control over your UI and data.
 
@@ -15,19 +15,19 @@ The D1 Rashi chart, all nine Navagraha plus Lagna, rendered with `RoxyVedicKundl
 
 | Light | Dark |
 |-------|------|
-| ![Kundali Rashi chart, light](public/screenshots/kundali-rashi-light.jpg) | ![Kundali Rashi chart, dark](public/screenshots/kundali-rashi-dark.jpg) |
+| ![Kundali Rashi chart, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-rashi-light.jpg) | ![Kundali Rashi chart, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-rashi-dark.jpg) |
 
 Strength analysis: the Ashtakavarga bindu grid with `RoxyAshtakavargaGrid` and the Shadbala ranking with `RoxyShadbalaTable`.
 
 | Light | Dark |
 |-------|------|
-| ![Ashtakavarga and Shadbala, light](public/screenshots/kundali-strength-light.jpg) | ![Ashtakavarga and Shadbala, dark](public/screenshots/kundali-strength-dark.jpg) |
+| ![Ashtakavarga and Shadbala, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-strength-light.jpg) | ![Ashtakavarga and Shadbala, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-strength-dark.jpg) |
 
 Vimshottari Dasha timeline with `RoxyDashaTimeline`, the active mahadasha highlighted.
 
 | Light | Dark |
 |-------|------|
-| ![Vimshottari Dasha timeline, light](public/screenshots/kundali-dasha-light.jpg) | ![Vimshottari Dasha timeline, dark](public/screenshots/kundali-dasha-dark.jpg) |
+| ![Vimshottari Dasha timeline, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-dasha-light.jpg) | ![Vimshottari Dasha timeline, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/kundali-dasha-dark.jpg) |
 
 ### Panchang
 
@@ -35,7 +35,7 @@ Daily tithi, nakshatra, yoga, karana, vara, and the auspicious and inauspicious 
 
 | Light | Dark |
 |-------|------|
-| ![Panchang table, light](public/screenshots/panchang-light.jpg) | ![Panchang table, dark](public/screenshots/panchang-dark.jpg) |
+| ![Panchang table, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/panchang-light.jpg) | ![Panchang table, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/panchang-dark.jpg) |
 
 ### Choghadiya
 
@@ -43,7 +43,7 @@ Day and night Choghadiya muhurta grid with `RoxyChoghadiyaGrid`, plus the 24 pla
 
 | Light | Dark |
 |-------|------|
-| ![Choghadiya and Hora, light](public/screenshots/choghadiya-light.jpg) | ![Choghadiya and Hora, dark](public/screenshots/choghadiya-dark.jpg) |
+| ![Choghadiya and Hora, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/choghadiya-light.jpg) | ![Choghadiya and Hora, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/choghadiya-dark.jpg) |
 
 ### Matching
 
@@ -51,7 +51,7 @@ Ashtakoot Gun Milan with `RoxyGunaMilan`: the 36-point score, eight koota breakd
 
 | Light | Dark |
 |-------|------|
-| ![Gun Milan compatibility, light](public/screenshots/matching-light.jpg) | ![Gun Milan compatibility, dark](public/screenshots/matching-dark.jpg) |
+| ![Gun Milan compatibility, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/matching-light.jpg) | ![Gun Milan compatibility, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/matching-dark.jpg) |
 
 ### Transits
 
@@ -59,7 +59,7 @@ Monthly Gochar with sign-change events and planetary aspects for all nine planet
 
 | Light | Dark |
 |-------|------|
-| ![Planetary transits, light](public/screenshots/transits-light.jpg) | ![Planetary transits, dark](public/screenshots/transits-dark.jpg) |
+| ![Planetary transits, light](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/transits-light.jpg) | ![Planetary transits, dark](https://raw.githubusercontent.com/RoxyAPI/jyotish-vedic-astrology-app/main/public/screenshots/transits-dark.jpg) |
 
 ## What you get
 
