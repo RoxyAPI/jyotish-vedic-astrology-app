@@ -5,27 +5,16 @@ import type {
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { formatDateShort } from '@/lib/format';
+import { formatDateShort, titleCase } from '@/lib/format';
+import { groupByDate } from '@/lib/group-by-date';
 
 type Transits = PostVedicAstrologyTransitMonthlyResponse;
 type Aspects = PostVedicAstrologyAspectsMonthlyResponse;
 
-function groupByDate<T extends { date: string }>(events: T[]): [string, T[]][] {
-  const groups = new Map<string, T[]>();
-  for (const e of events) {
-    const list = groups.get(e.date) ?? [];
-    list.push(e);
-    groups.set(e.date, list);
-  }
-  return [...groups.entries()].sort(([a], [b]) => a.localeCompare(b));
-}
-
-function titleCase(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1).replace(/-/g, ' ');
-}
-
 /**
- * Monthly Vedic transit and aspect renderer. There is no dedicated Roxy UI component for Vedic monthly transits (`RoxyTransitsTable` is Western), so this small table renders the typed response directly. Server component, no client cost.
+ * Monthly Vedic transit and aspect renderer. There is no dedicated Roxy UI component
+ * for Vedic monthly transits (`RoxyTransitsTable` is Western), so this small table
+ * renders the typed response directly. Server component, no client cost.
  */
 export function TransitsView({ transits, aspects }: { transits: Transits; aspects: Aspects }) {
   const signChanges = groupByDate(transits.transitEvents);

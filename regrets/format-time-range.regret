@@ -1,0 +1,12 @@
+cluster: format-time-range
+version: 1
+fingerprint: 5iqzkce
+captured: 2026-06-13T16:15:10.410Z
+watches: [formatTimeRange, formatTime]
+entry: formatTimeRange
+stack: js
+fingerprintLevel: entry
+---
+INPUT  ["2026-03-22T06:41:00","2026-03-22T07:30:00"]
+OUTPUT "6:41 am to 7:30 am"
+HASH   5iqzkce

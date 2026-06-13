@@ -1,0 +1,12 @@
+cluster: to-lang
+version: 1
+fingerprint: 2pcplog
+captured: 2026-06-13T16:15:10.615Z
+watches: [toLang]
+entry: toLang
+stack: js
+fingerprintLevel: entry
+---
+INPUT  "en"
+OUTPUT "en"
+HASH   2pcplog

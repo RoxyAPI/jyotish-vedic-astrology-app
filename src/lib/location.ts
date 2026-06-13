@@ -1,16 +1,8 @@
-import type { GetLocationSearchResponse } from '@roxyapi/sdk';
+import type { Coords } from '@/lib/types';
 
-/**
- * A single city result from `roxy.location.searchCities`, derived from the spec so it never drifts. The `/api/cities` route returns an array of these.
- */
-export type City = NonNullable<GetLocationSearchResponse['cities']>[number];
-
-/** Latitude, longitude, and decimal-hour timezone offset, the only fields every chart and panchang endpoint needs. */
-export interface Coords {
-  latitude: number;
-  longitude: number;
-  timezone: number;
-}
+// Re-export types from the shared types module for backward compatibility.
+// New code should import directly from '@/lib/types'.
+export type { City, Coords } from '@/lib/types';
 
 /** Mumbai. The default location used until the user picks a city. */
 export const DEFAULT_CITY = {
@@ -20,13 +12,9 @@ export const DEFAULT_CITY = {
   timezone: 5.5,
 } as const;
 
-/** Today as `YYYY-MM-DD`. */
-export function todayString(): string {
-  return new Date().toISOString().split('T')[0];
-}
-
 /**
- * Resolves a page's date and location from URL search params, falling back to today and Mumbai. The read pages keep their inputs in the URL, so this is how a Server Component recovers them on each render.
+ * Resolves a page's date and location from URL search params, falling back to today and Mumbai.
+ * The read pages keep their inputs in the URL, so this is how a Server Component recovers them on each render.
  */
 export function resolveDateAndLocation(params: Record<string, string | string[] | undefined>): {
   date: string;
@@ -46,7 +34,7 @@ export function resolveDateAndLocation(params: Record<string, string | string[] 
   };
 
   return {
-    date: str('date', todayString()),
+    date: str('date', new Date().toISOString().split('T')[0]),
     label: str('label', DEFAULT_CITY.label),
     coords: {
       latitude: num('lat', DEFAULT_CITY.latitude),

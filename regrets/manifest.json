@@ -1,0 +1,138 @@
+{
+  "clusters": [
+    {
+      "id": "format-time",
+      "entry": "formatTime",
+      "watches": ["formatTime"],
+      "file": "regrets/adapters/format.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Format ISO local time string to 12-hour display (e.g. 6:41 am)",
+      "inputs": [
+        "2026-03-22T06:41:00",
+        "2026-03-22T14:30:00",
+        null,
+        "",
+        "2026-03-22T00:00:00",
+        "2026-03-22T12:00:00",
+        "2026-03-22T23:59:00"
+      ]
+    },
+    {
+      "id": "format-time-range",
+      "entry": "formatTimeRange",
+      "watches": ["formatTimeRange", "formatTime"],
+      "file": "regrets/adapters/format.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "multiArgs": true,
+      "description": "Format time range from two ISO strings (e.g. 6:41 am to 7:30 am)",
+      "inputs": [
+        ["2026-03-22T06:41:00", "2026-03-22T07:30:00"],
+        ["2026-03-22T14:00:00", "2026-03-22T16:30:00"],
+        [null, null],
+        ["2026-03-22T00:00:00", "2026-03-22T23:59:00"]
+      ]
+    },
+    {
+      "id": "format-date",
+      "entry": "formatDate",
+      "watches": ["formatDate"],
+      "file": "regrets/adapters/format.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Format ISO date string to readable long date (en-IN locale)",
+      "inputs": [
+        "2026-03-22",
+        "2026-01-01",
+        "2026-12-31",
+        "2000-02-29"
+      ]
+    },
+    {
+      "id": "format-date-short",
+      "entry": "formatDateShort",
+      "watches": ["formatDateShort"],
+      "file": "regrets/adapters/format.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Format ISO date string to short readable date (e.g. Sun, 22 Mar)",
+      "inputs": [
+        "2026-03-22",
+        "2026-01-01",
+        "2026-12-31",
+        "2000-02-29"
+      ]
+    },
+    {
+      "id": "to-lang",
+      "entry": "toLang",
+      "watches": ["toLang"],
+      "file": "regrets/adapters/lang.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Validate and narrow a cookie string to a supported Lang code, defaulting to English",
+      "inputs": [
+        "en",
+        "hi",
+        "fr",
+        "xx",
+        "",
+        null,
+        "de",
+        "ru"
+      ]
+    },
+    {
+      "id": "resolve-date-location",
+      "entry": "resolveDateAndLocation",
+      "watches": ["resolveDateAndLocation"],
+      "file": "regrets/adapters/location.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Resolve page date and location from URL search params with defaults",
+      "inputs": [
+        { "date": "2026-06-14", "lat": "28.6139", "lon": "77.209", "tz": "5.5", "label": "Delhi, India" },
+        {},
+        { "date": "2026-01-01" },
+        { "lat": "40.7128", "lon": "-74.006", "tz": "-5" }
+      ]
+    },
+    {
+      "id": "message-for-code",
+      "entry": "messageForCode",
+      "watches": ["messageForCode"],
+      "file": "regrets/adapters/guard.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "multiArgs": true,
+      "description": "Map SDK error code to user-facing message",
+      "inputs": [
+        ["validation_error", "bad input"],
+        ["api_key_required", null],
+        ["invalid_api_key", null],
+        ["rate_limit_exceeded", "slow down"],
+        ["not_found", null],
+        ["unknown_code", "something went wrong"],
+        [null, "generic error"],
+        [null, null]
+      ]
+    },
+    {
+      "id": "cn-merge",
+      "entry": "cn",
+      "watches": ["cn"],
+      "file": "regrets/adapters/utils.js",
+      "stack": "js",
+      "fingerprintLevel": "entry",
+      "description": "Merge Tailwind class names with clsx + twMerge",
+      "inputs": [
+        ["px-4 py-2", "px-6"],
+        ["text-red-500", "text-blue-500"],
+        ["", "px-4"],
+        ["px-4", "py-2", "bg-white"],
+        []
+      ]
+    }
+  ]
+}

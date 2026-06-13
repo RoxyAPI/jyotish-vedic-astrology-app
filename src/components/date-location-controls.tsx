@@ -10,7 +10,7 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { CitySearch } from '@/components/city-search';
-import type { City } from '@/lib/location';
+import type { City } from '@/lib/types';
 
 /**
  * Date + city picker for the read pages (panchang, choghadiya). The selection is encoded in the URL query string and pushed with the router, which re-runs the Server Component on the same route so it re-fetches with the new inputs. Keeping state in the URL makes every view shareable and back-button friendly with no client data store.

@@ -1,0 +1,12 @@
+cluster: message-for-code
+version: 1
+fingerprint: 26oguyu
+captured: 2026-06-13T16:15:10.616Z
+watches: [messageForCode]
+entry: messageForCode
+stack: js
+fingerprintLevel: entry
+---
+INPUT  ["validation_error","bad input"]
+OUTPUT "The request was rejected as invalid. Check the birth date, time, and coordinates."
+HASH   26oguyu
