@@ -1,0 +1,18 @@
+KEBENARAN 2 — Regrets Fingerprints (All GREEN from Phase 1)
+Captured: 2026-06-14
+All 8 clusters PASS + STABLE (5 runs drift detection)
+
+| Cluster | Fingerprint | Status |
+|---------|-------------|--------|
+| format-time | fl8dtar | SOLID |
+| format-time-range | 5iqzkce | SOLID |
+| format-date | 3aql4qz | SOLID |
+| format-date-short | 15le3k8 | SOLID |
+| to-lang | 2pcplog | SOLID |
+| resolve-date-location | 1piq8uu | SOLID |
+| message-for-code | 26oguyu | SOLID |
+| cn-merge | 117aroi | SOLID |
+
+These fingerprints represent the behavioral contracts of the pure functions.
+They must NOT change after refactoring — unless behavior intentionally changes
+(with --reason flag and audit trail).

@@ -9,7 +9,11 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "regret:capture": "node /home/z/my-project/Regrets/scripts/regret.js capture",
+    "regret:validate": "node /home/z/my-project/Regrets/scripts/regret.js validate",
+    "regret:drift": "node /home/z/my-project/Regrets/scripts/regret.js drift",
+    "regret:health": "node /home/z/my-project/Regrets/scripts/regret.js health"
   },
   "dependencies": {
     "@roxyapi/sdk": "^1.2.30",

@@ -1,9 +1,11 @@
+// Adapter: Pure formatting functions from src/lib/format.ts
+// These are exact copies of the source logic for Regrets fingerprinting.
+// The source of truth is always src/lib/format.ts — if that changes, this adapter must be updated.
+
 /**
  * Format an ISO local time string (e.g. "2026-03-22T06:41:00") to 12-hour display.
- * The API returns local times with no timezone suffix, so the HH:MM is read directly
- * with no Date object (avoids a UTC reinterpretation).
  */
-export function formatTime(iso: string | null | undefined): string {
+export function formatTime(iso) {
   if (!iso) return '--';
   const time = iso.split('T')[1];
   if (!time) return iso;
@@ -13,15 +15,12 @@ export function formatTime(iso: string | null | undefined): string {
 }
 
 /** Format a time range from two ISO strings, e.g. "6:41 am to 7:30 am". */
-export function formatTimeRange(
-  start: string | null | undefined,
-  end: string | null | undefined,
-): string {
+export function formatTimeRange(start, end) {
   return `${formatTime(start)} to ${formatTime(end)}`;
 }
 
 /** Format an ISO date string to a readable long date. */
-export function formatDate(dateStr: string): string {
+export function formatDate(dateStr) {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
     weekday: 'long',
     year: 'numeric',
@@ -31,20 +30,10 @@ export function formatDate(dateStr: string): string {
 }
 
 /** Format an ISO date string to a short readable date (e.g. "Sun, 22 Mar"). */
-export function formatDateShort(dateStr: string): string {
+export function formatDateShort(dateStr) {
   return new Date(dateStr + 'T00:00:00').toLocaleDateString('en-IN', {
     weekday: 'short',
     day: 'numeric',
     month: 'short',
   });
-}
-
-/** Capitalize the first letter and replace hyphens with spaces. */
-export function titleCase(value: string): string {
-  return value.charAt(0).toUpperCase() + value.slice(1).replace(/-/g, ' ');
-}
-
-/** Today as `YYYY-MM-DD`. */
-export function todayString(): string {
-  return new Date().toISOString().split('T')[0];
 }

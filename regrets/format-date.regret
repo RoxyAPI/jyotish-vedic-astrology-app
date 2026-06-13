@@ -1,0 +1,12 @@
+cluster: format-date
+version: 1
+fingerprint: 3aql4qz
+captured: 2026-06-13T16:15:10.613Z
+watches: [formatDate]
+entry: formatDate
+stack: js
+fingerprintLevel: entry
+---
+INPUT  "2026-03-22"
+OUTPUT "Sunday, 22 March 2026"
+HASH   3aql4qz

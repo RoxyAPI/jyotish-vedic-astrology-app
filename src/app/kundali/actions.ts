@@ -3,16 +3,19 @@
 import { roxy } from '@/lib/roxy/client';
 import { unwrap } from '@/lib/roxy/guard';
 import type { Lang } from '@/lib/lang';
-import type { Coords } from '@/lib/location';
+import type { BirthDetails } from '@/lib/types';
 
-export interface BirthInput extends Coords {
-  date: string;
-  time: string;
+export interface BirthInput extends BirthDetails {
   lang?: Lang;
 }
 
 /**
- * Fans out one birth input to every kundali endpoint in parallel: D1 birth chart, D9 navamsa (via the generic divisional chart), Vimshottari major dashas, the three doshas, and the two strength analyses. One round trip per endpoint, all concurrent. `lang` is forwarded to the i18n-aware endpoints (birth chart, dashas); the dosha and strength endpoints return only numbers and planet names, so they take no `lang` query.
+ * Fans out one birth input to every kundali endpoint in parallel:
+ * D1 birth chart, D9 navamsa (via the generic divisional chart),
+ * Vimshottari major dashas, the three doshas, and the two strength analyses.
+ * One round trip per endpoint, all concurrent. `lang` is forwarded to the
+ * i18n-aware endpoints (birth chart, dashas); the dosha and strength endpoints
+ * return only numbers and planet names, so they take no `lang` query.
  */
 export async function generateKundali({ date, time, latitude, longitude, timezone, lang }: BirthInput) {
   const body = { date, time, latitude, longitude, timezone };

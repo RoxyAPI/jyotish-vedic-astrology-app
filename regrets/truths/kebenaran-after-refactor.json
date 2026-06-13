@@ -1,0 +1,97 @@
+(node:12396) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///home/z/my-project/jyotish-vedic-astrology-app/regrets/adapters/format.js is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /home/z/my-project/jyotish-vedic-astrology-app/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "format-time": {
+    "2026-03-22T06:41:00": "6:41 am",
+    "2026-03-22T14:30:00": "2:30 pm",
+    "null": "--",
+    "empty-string": "--",
+    "2026-03-22T00:00:00": "12:00 am",
+    "2026-03-22T12:00:00": "12:00 pm",
+    "2026-03-22T23:59:00": "11:59 pm"
+  },
+  "format-time-range": {
+    "06:41-to-07:30": "6:41 am to 7:30 am",
+    "14:00-to-16:30": "2:00 pm to 4:30 pm",
+    "null-to-null": "-- to --",
+    "00:00-to-23:59": "12:00 am to 11:59 pm"
+  },
+  "format-date": {
+    "2026-03-22": "Sunday, 22 March 2026",
+    "2026-01-01": "Thursday, 1 January 2026",
+    "2026-12-31": "Thursday, 31 December 2026",
+    "2000-02-29": "Tuesday, 29 February 2000"
+  },
+  "format-date-short": {
+    "2026-03-22": "Sun, 22 Mar",
+    "2026-01-01": "Thu, 1 Jan",
+    "2026-12-31": "Thu, 31 Dec",
+    "2000-02-29": "Tue, 29 Feb"
+  },
+  "to-lang": {
+    "en": "en",
+    "hi": "hi",
+    "fr": "fr",
+    "xx": "en",
+    "empty": "en",
+    "null": "en",
+    "de": "de",
+    "ru": "ru"
+  },
+  "resolve-date-location": {
+    "delhi": {
+      "date": "2026-06-14",
+      "label": "Delhi, India",
+      "coords": {
+        "latitude": 28.6139,
+        "longitude": 77.209,
+        "timezone": 5.5
+      }
+    },
+    "empty": {
+      "date": "2026-01-15",
+      "label": "Mumbai, India",
+      "coords": {
+        "latitude": 19.076,
+        "longitude": 72.8777,
+        "timezone": 5.5
+      }
+    },
+    "date-only": {
+      "date": "2026-01-01",
+      "label": "Mumbai, India",
+      "coords": {
+        "latitude": 19.076,
+        "longitude": 72.8777,
+        "timezone": 5.5
+      }
+    },
+    "nyc-coords": {
+      "date": "2026-01-15",
+      "label": "Mumbai, India",
+      "coords": {
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "timezone": -5
+      }
+    }
+  },
+  "message-for-code": {
+    "validation_error": "The request was rejected as invalid. Check the birth date, time, and coordinates.",
+    "api_key_required": "ROXYAPI_KEY is not set. Add it to .env.local and restart the dev server. Get a key at roxyapi.com/pricing.",
+    "invalid_api_key": "ROXYAPI_KEY is not set. Add it to .env.local and restart the dev server. Get a key at roxyapi.com/pricing.",
+    "rate_limit_exceeded": "Monthly request quota reached. Upgrade your plan at roxyapi.com/pricing.",
+    "not_found": "The requested resource was not found.",
+    "unknown_code": "something went wrong",
+    "null-code": "The request to RoxyAPI failed. Please try again."
+  },
+  "cn-merge": {
+    "override-px": "py-2 px-6",
+    "color-override": "text-blue-500",
+    "empty-plus-class": "px-4",
+    "three-classes": "px-4 py-2 bg-white",
+    "empty-array": ""
+  }
+}

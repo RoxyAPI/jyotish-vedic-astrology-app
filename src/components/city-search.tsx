@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Input } from '@/components/ui/input';
-import type { City } from '@/lib/location';
+import type { City } from '@/lib/types';
 
 /**
  * Debounced city autocomplete. Fetches through the server `/api/cities` route so the secret key stays server-side. Emits the selected {@link City} (with `latitude`, `longitude`, and `utcOffset`) to the parent, which feeds it into a chart or panchang request.

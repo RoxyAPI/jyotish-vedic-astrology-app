@@ -1,0 +1,12 @@
+cluster: cn-merge
+version: 1
+fingerprint: 117aroi
+captured: 2026-06-13T16:15:10.625Z
+watches: [cn]
+entry: cn
+stack: js
+fingerprintLevel: entry
+---
+INPUT  ["px-4 py-2","px-6"]
+OUTPUT "py-2 px-6"
+HASH   117aroi

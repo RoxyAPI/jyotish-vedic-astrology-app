@@ -1,0 +1,12 @@
+cluster: format-date-short
+version: 1
+fingerprint: 15le3k8
+captured: 2026-06-13T16:15:10.614Z
+watches: [formatDateShort]
+entry: formatDateShort
+stack: js
+fingerprintLevel: entry
+---
+INPUT  "2026-03-22"
+OUTPUT "Sun, 22 Mar"
+HASH   15le3k8
