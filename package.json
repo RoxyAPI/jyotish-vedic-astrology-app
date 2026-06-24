@@ -10,10 +10,12 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "prepare": "lefthook install"
+    "prepare": "lefthook install",
+    "upgrade": "ncu --target minor --upgrade",
+    "check-outdated": "ncu"
   },
   "dependencies": {
-    "@roxyapi/sdk": "^1.2.30",
+    "@roxyapi/sdk": "^1.2.41",
     "@roxyapi/ui": "^0.7.0",
     "@roxyapi/ui-react": "^0.7.0",
     "class-variance-authority": "^0.7.1",
@@ -36,6 +38,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "lefthook": "^2.1.9",
+    "npm-check-updates": "^22.2.7",
     "shadcn": "^4.8.0",
     "tailwindcss": "^4",
     "typescript": "^5",
