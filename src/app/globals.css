@@ -117,15 +117,22 @@
 }
 
 /*
- * Roxy UI token bridge. Roxy UI components (RoxyVedicKundli, RoxyPanchangTable, etc.)
+ * Roxy UI token bridge. Roxy components (RoxyVedicKundli, RoxyPanchangTable, etc.)
  * read their colors from --roxy-* custom properties, not Tailwind classes (Shadow DOM
  * stops utilities at the boundary). Mapping them to this app's shadcn tokens makes every
  * Roxy component inherit the theme. The values reference --background, --foreground, etc.,
  * which .dark already swaps, so dark mode follows automatically (next-themes toggles .dark
- * on <html>, and Roxy components honor the .dark class too). See @roxyapi/ui THEMING.md.
+ * on <html>, and Roxy components honor the .dark class too).
+ *
+ * The selector is html:root, not :root. The component defaults ship their own dark-mode
+ * block, and a bare :root does not outrank it, so the theme silently loses in dark mode.
+ *
+ * Token reference: node_modules/@roxyapi/ui-react/README.md
  */
-:root {
+html:root {
   --roxy-bg: var(--card);
+  /* The card face and the chart plate paint from --roxy-surface. Miss it and every reading renders as a white rectangle sitting inside the theme. */
+  --roxy-surface: var(--card);
   --roxy-fg: var(--foreground);
   --roxy-muted: var(--muted-foreground);
   --roxy-border: var(--border);
@@ -140,7 +147,7 @@
   --roxy-radius-full: 9999px;
   --roxy-font-sans: var(--font-sans);
   --roxy-font-mono: var(--font-mono);
-  /* --roxy-success / --roxy-warning / --roxy-info have no shadcn equivalent; they keep the Roxy UI defaults (see @roxyapi/ui THEMING.md). */
+  /* --roxy-success / --roxy-warning / --roxy-info have no shadcn equivalent; they keep the Roxy UI defaults. */
 }
 
 @layer base {
