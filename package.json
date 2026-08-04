@@ -15,11 +15,11 @@
     "check-outdated": "ncu"
   },
   "dependencies": {
-    "@roxyapi/sdk": "^1.2.51",
-    "@roxyapi/ui-react": "^0.19.4",
+    "@roxyapi/sdk": "^1.2.54",
+    "@roxyapi/ui-react": "^0.20.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
-    "lucide-react": "^1.27.0",
+    "lucide-react": "^1.28.0",
     "next": "^16.3.0",
     "next-themes": "^0.4.6",
     "radix-ui": "^1.6.7",
@@ -38,7 +38,7 @@
     "eslint-config-next": "^16.2.12",
     "lefthook": "^2.1.9",
     "npm-check-updates": "^22.2.7",
-    "shadcn": "^4.16.0",
+    "shadcn": "^4.16.1",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vitest": "^4.1.9"
