@@ -264,7 +264,7 @@ One-click deploy on [Vercel](https://vercel.com). Set `ROXYAPI_KEY` in environme
 
 ## Why Roxy
 
-- **Breadth.** 40+ Vedic endpoints plus Western astrology, tarot, numerology, biorhythm, I Ching, crystals, dreams, and angel numbers under one key.
+- **Breadth.** 40+ Vedic endpoints plus Western astrology, forecast, human design, Chinese astrology, feng shui, numerology, tarot, biorhythm, I Ching, crystals, dreams, and angel numbers under one key.
 - **Type-safe.** The SDK and UI types come from one OpenAPI pipeline, so response shapes cannot drift from what the API returns.
 - **City search.** Built-in location API with coordinates and DST-aware timezone offsets.
 - **KP astrology.** Full Krishnamurti Paddhati (Placidus cusps, sub-lords, significators) alongside Parashari.
