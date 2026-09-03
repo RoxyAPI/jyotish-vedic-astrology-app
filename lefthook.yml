@@ -7,6 +7,12 @@ pre-commit:
       run: npm run typecheck
     lint:
       run: npm run lint
+    agent-rules-guard:
+      run: |
+        if grep -q "nextjs-agent-rules" AGENTS.md CLAUDE.md 2>/dev/null; then
+          echo "AGENTS.md carries the block next dev writes when it detects a coding agent. Remove it before committing; the repo owns its own agent instructions."
+          exit 1
+        fi
 pre-push:
   parallel: false
   commands:
