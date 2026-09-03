@@ -212,12 +212,16 @@ Roxy UI components read their colors from `--roxy-*` CSS custom properties. `src
 
 ```css
 :root {
+  --roxy-surface: var(--card);
   --roxy-bg: var(--card);
   --roxy-fg: var(--foreground);
+  --roxy-muted: var(--muted-foreground);
   --roxy-accent: var(--primary);
   --roxy-border: var(--border);
 }
 ```
+
+`--roxy-surface` is the card a component paints and the one to match to your page; `--roxy-bg` is only the field behind an input.
 
 next-themes toggles a `.dark` class on `<html>`, which both the app and the Roxy UI components honor. To rebrand, change the shadcn tokens in `globals.css`; the Roxy components inherit.
 
