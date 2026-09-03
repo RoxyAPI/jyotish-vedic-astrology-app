@@ -55,7 +55,7 @@ Every method below is confirmed live against the OpenAPI spec by operation ID. V
 
 ## Rule: location first, charts second
 
-Every chart and panchang endpoint needs `latitude` and `longitude`, and every chart endpoint also needs `timezone`. Never ask a visitor to type any of them. `src/components/city-search.tsx` resolves a birthplace through `/api/cities`, and the selected city carries coordinates and offset into the request body. `src/lib/location.ts` holds the `Coords` type, the default city, and the search-param parsing shared by every page.
+Every chart and panchang endpoint takes `latitude` and `longitude`, and every chart request in this app also sends `timezone` from the selected city. Never ask a visitor to type any of them. `src/components/city-search.tsx` resolves a birthplace through `/api/cities`, and the selected city carries coordinates and offset into the request body. `src/lib/location.ts` holds the `Coords` type, the default city, and the search-param parsing shared by every page.
 
 ## Where to extend
 
@@ -68,7 +68,7 @@ Every chart and panchang endpoint needs `latitude` and `longitude`, and every ch
 ## Conventions
 
 - No apostrophes, no em dashes, and no double hyphens as a dash, in any prose a visitor or a reader of this repository will see.
-- Never name or claim the calculation engine is open source. The public framing is "Roxy Ephemeris", verified against NASA JPL Horizons.
+- Never name the calculation engine or its libraries. The public framing is "Roxy Ephemeris", verified against NASA JPL Horizons.
 - Server Components by default. `"use client"` only where a Roxy UI component mounts, a form needs state, or the browser needs an event handler.
 - Reuse before you add. Check `src/lib/` and `src/components/` before writing a helper or a component that probably already exists.
 - `next dev` never writes into this file: `agentRules: false` in `next.config.ts` turns off the managed block Next.js writes into `AGENTS.md` when it detects a coding agent, and the `agent-rules-guard` pre-commit command in `lefthook.yml` refuses a commit if that block reappears. This repo owns its own agent instructions.
