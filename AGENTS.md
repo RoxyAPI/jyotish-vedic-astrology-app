@@ -1,6 +1,6 @@
 # Agents Guide
 
-This is an MIT licensed RoxyAPI template: a Vedic astrology (Jyotish) kundli app built with Next.js 16 Server Components, the `@roxyapi/sdk` TypeScript client, and the `@roxyapi/ui-react` component library. It renders a janam kundli with divisional charts, Vimshottari Dasha, dosha detection, and strength analysis, plus Ashtakoot Gun Milan matching, daily Panchang, Choghadiya and Hora, and monthly transits, all from one API key with full control over the UI and the data. You are most likely a coding agent helping someone fork and rebrand this app. More templates to fork: https://roxyapi.com/starters
+This is an MIT licensed RoxyAPI template: a Vedic astrology (Jyotish) kundli app built with Next.js 16 Server Components, the `@roxyapi/sdk` TypeScript client, and the `@roxyapi/ui-react` component library. It renders a janam kundli with divisional charts, Vimshottari Dasha, dosha detection, and strength analysis, plus Ashtakoot Gun Milan matching, daily Panchang, Choghadiya and Hora, and monthly transits, all from one API key with full control over the UI and the data. You are most likely a coding agent helping someone fork and rebrand this app. More templates to fork: https://roxyapi.com/templates
 
 ## Canonical RoxyAPI references (use these, do not guess)
 
@@ -89,4 +89,4 @@ git merge upstream/main        # or: git rebase upstream/main
 ## Resources
 
 - TypeScript SDK: https://github.com/RoxyAPI/sdk-typescript (npm `@roxyapi/sdk`)
-- Vedic Astrology API: https://roxyapi.com/products/vedic-astrology-api · Methodology: https://roxyapi.com/methodology · More templates: https://roxyapi.com/starters · Pricing: https://roxyapi.com/pricing
+- Vedic Astrology API: https://roxyapi.com/products/vedic-astrology-api · Methodology: https://roxyapi.com/methodology · More templates: https://roxyapi.com/templates · Pricing: https://roxyapi.com/pricing
