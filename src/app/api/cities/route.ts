@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from 'next/server';
 import { hasApiKey, roxy } from '@/lib/roxy/client';
 
 /**
- * Server-side city search proxy. The secret `ROXYAPI_KEY` never reaches the browser, so the client `CitySearch` component fetches through this handler instead of calling the API directly.
+ * Server-side city search proxy. The secret `ROXY_API_KEY` never reaches the browser, so the client `CitySearch` component fetches through this handler instead of calling the API directly.
  *
  * @remarks `roxy.location.searchCities` resolves to `{ cities: [...] }`, so this returns `data.cities`, not the envelope.
  */

@@ -6,9 +6,9 @@ import { createRoxy } from '@roxyapi/sdk';
  *
  * @remarks The `server-only` import makes any accidental client-side import a build error, so the secret key can never reach the browser. Read {@link hasApiKey} before calling, or wrap the call in `unwrap` from `./guard`.
  */
-const key = process.env.ROXYAPI_KEY;
+const key = process.env.ROXY_API_KEY;
 
 export const roxy = createRoxy(key ?? '');
 
-/** True when `ROXYAPI_KEY` is set. Render `ApiKeyMissing` at the page boundary when this is false instead of letting calls fail. */
+/** True when `ROXY_API_KEY` is set. Render `ApiKeyMissing` at the page boundary when this is false instead of letting calls fail. */
 export const hasApiKey = Boolean(key);

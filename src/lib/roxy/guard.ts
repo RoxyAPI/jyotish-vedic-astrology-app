@@ -2,10 +2,10 @@ import 'server-only';
 import { hasApiKey } from './client';
 
 /**
- * Single message shown when `ROXYAPI_KEY` is unset. The page boundary renders the `ApiKeyMissing` component instead of throwing this, but `unwrap` falls back to it for any call that slips through without a key (e.g. a route handler).
+ * Single message shown when `ROXY_API_KEY` is unset. The page boundary renders the `ApiKeyMissing` component instead of throwing this, but `unwrap` falls back to it for any call that slips through without a key (e.g. a route handler).
  */
 export const NO_KEY =
-  'ROXYAPI_KEY is not set. Add it to .env.local and restart the dev server. Get a key at roxyapi.com/pricing.';
+  'ROXY_API_KEY is not set. Add it to .env.local and restart the dev server. Get a key at roxyapi.com/pricing.';
 
 /**
  * The success/error envelope every `@roxyapi/sdk` method resolves to. `data` is the typed response on success, `error` is the typed API error on failure: the two are mutually exclusive. The SDK error always carries a stable `code` and a human-readable `error` string.

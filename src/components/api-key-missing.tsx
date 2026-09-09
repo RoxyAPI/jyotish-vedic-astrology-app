@@ -25,7 +25,7 @@ export function ApiKeyMissing() {
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-medium">3</span>
-              <span>Add <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">ROXYAPI_KEY=your-key-here</code></span>
+              <span>Add <code className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs">ROXY_API_KEY=your-key-here</code></span>
             </li>
             <li className="flex gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-medium">4</span>

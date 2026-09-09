@@ -1,7 +1,7 @@
 # Jyotish - Vedic Astrology Kundli App
 
 [![Get API Key](https://img.shields.io/badge/Get_API_Key-roxyapi.com-black?style=for-the-badge)](https://roxyapi.com/pricing)
-[![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/RoxyAPI/jyotish-vedic-astrology-app&env=ROXYAPI_KEY&envDescription=Get%20your%20API%20key%20at%20roxyapi.com/pricing&project-name=jyotish&repository-name=jyotish)
+[![Deploy with Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/new/clone?repository-url=https://github.com/RoxyAPI/jyotish-vedic-astrology-app&env=ROXY_API_KEY&envDescription=Get%20your%20API%20key%20at%20roxyapi.com/pricing&project-name=jyotish&repository-name=jyotish)
 [![API Docs](https://img.shields.io/badge/API_Docs-Reference-black?style=for-the-badge)](https://roxyapi.com/api-reference#tag/vedic-astrology)
 [![License: MIT](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](https://github.com/RoxyAPI/jyotish-vedic-astrology-app/blob/main/LICENSE)
 
@@ -103,7 +103,7 @@ npm install
 Get instant access at **[roxyapi.com/pricing](https://roxyapi.com/pricing)**. One key unlocks every Vedic astrology and location endpoint. Add it to `.env.local`:
 
 ```
-ROXYAPI_KEY=your-api-key-here
+ROXY_API_KEY=your-api-key-here
 ```
 
 Your key stays server-side only, never exposed to the browser. If the key is missing, the app shows a branded setup page with instructions.
@@ -127,7 +127,7 @@ The SDK is the only data layer. There is no generated schema file to keep in syn
 import 'server-only';
 import { createRoxy } from '@roxyapi/sdk';
 
-const key = process.env.ROXYAPI_KEY;
+const key = process.env.ROXY_API_KEY;
 export const roxy = createRoxy(key ?? '');
 export const hasApiKey = Boolean(key);
 ```
@@ -167,7 +167,7 @@ The highest-demand Vedic endpoints, in the order you are most likely to ship the
 ```ts
 import { createRoxy } from '@roxyapi/sdk';
 
-const roxy = createRoxy(process.env.ROXYAPI_KEY!);
+const roxy = createRoxy(process.env.ROXY_API_KEY!);
 
 // Geocode the birth city first (required for every chart endpoint).
 const { data: cities } = await roxy.location.searchCities({ query: { q: 'Mumbai' } });
@@ -264,7 +264,7 @@ src/
 
 ## Deploy
 
-One-click deploy on [Vercel](https://vercel.com). Set `ROXYAPI_KEY` in environment variables.
+One-click deploy on [Vercel](https://vercel.com). Set `ROXY_API_KEY` in environment variables.
 
 ## Why Roxy
 

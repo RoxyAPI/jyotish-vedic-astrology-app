@@ -3,14 +3,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 /**
  * Tests for the `unwrap` guard. The SDK is mocked, so these run with no network. They prove `unwrap` returns `data` on success, throws a code-mapped message on an API error, and throws the NO_KEY message when no key is configured.
  *
- * The Roxy client reads `ROXYAPI_KEY` once at module load, so each test resets the module registry and sets the env before importing the guard.
+ * The Roxy client reads `ROXY_API_KEY` once at module load, so each test resets the module registry and sets the env before importing the guard.
  */
 
 vi.mock('@roxyapi/sdk', () => ({ createRoxy: () => ({}) }));
 
 beforeEach(() => {
   vi.resetModules();
-  process.env.ROXYAPI_KEY = 'test-key';
+  process.env.ROXY_API_KEY = 'test-key';
 });
 
 afterEach(() => {
@@ -46,7 +46,7 @@ describe('unwrap', () => {
   });
 
   it('throws the NO_KEY message when the key is missing', async () => {
-    process.env.ROXYAPI_KEY = '';
+    process.env.ROXY_API_KEY = '';
     const { unwrap, NO_KEY } = await import('@/lib/roxy/guard');
     await expect(unwrap(Promise.resolve({ data: {} }))).rejects.toThrow(NO_KEY);
   });

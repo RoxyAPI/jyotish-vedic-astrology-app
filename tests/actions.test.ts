@@ -25,7 +25,7 @@ beforeEach(() => {
   // The Roxy client freezes `hasApiKey` at import, so reset the registry every test
   // and let each test set the env before its dynamic import.
   vi.resetModules();
-  process.env.ROXYAPI_KEY = 'test-key';
+  process.env.ROXY_API_KEY = 'test-key';
   for (const fn of Object.values(vedic)) fn.mockResolvedValue({ data: {}, error: undefined });
 });
 
@@ -55,9 +55,9 @@ describe('generateKundali', () => {
 
   it('throws a setup error when the API key is missing', async () => {
     vi.resetModules();
-    process.env.ROXYAPI_KEY = '';
+    process.env.ROXY_API_KEY = '';
     const { generateKundali } = await import('@/app/kundali/actions');
-    await expect(generateKundali({ ...birth, lang: 'en' })).rejects.toThrow(/ROXYAPI_KEY is not set/);
+    await expect(generateKundali({ ...birth, lang: 'en' })).rejects.toThrow(/ROXY_API_KEY is not set/);
   });
 
   it('throws a code-mapped message when an endpoint returns an error', async () => {

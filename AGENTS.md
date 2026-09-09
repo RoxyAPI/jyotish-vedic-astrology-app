@@ -17,7 +17,7 @@ Prefer these live sources over memory for any RoxyAPI path, field, SDK method, o
 ## Setup
 
 - Get an API key at https://roxyapi.com/pricing
-- Copy `env.example` to `.env.local` and set `ROXYAPI_KEY`. That is the only secret in the project.
+- Copy `env.example` to `.env.local` and set `ROXY_API_KEY`. That is the only secret in the project.
 - `npm install`, then `npm run dev`, then open http://localhost:3000
 - `npm test` runs the vitest suite: the `unwrap`/`tryUnwrap` error-code guard, and the kundali and matching Server Actions with the SDK mocked, so it runs with no network and no real key.
 - Match what CI runs, in order: `npm run typecheck`, `npm run lint`, `npm test`, `npm run build`. `npm run build` needs no key: every RoxyAPI call happens at request time inside a Server Component or Server Action, never at build time.
