@@ -15,8 +15,8 @@
     "check-outdated": "ncu"
   },
   "dependencies": {
-    "@roxyapi/sdk": "^1.2.76",
-    "@roxyapi/ui-react": "^0.38.0",
+    "@roxyapi/sdk": "^1.2.80",
+    "@roxyapi/ui-react": "^0.41.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.41.0",
