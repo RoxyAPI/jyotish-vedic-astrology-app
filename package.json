@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@roxyapi/sdk": "^1.2.80",
-    "@roxyapi/ui-react": "^0.41.0",
+    "@roxyapi/ui-react": "^0.42.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^1.45.0",
